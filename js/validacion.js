@@ -6,12 +6,11 @@ function showAlertError() {
     document.getElementById("alert-danger").classList.add("show");
 }
 
- document.getElementById('regBtn').addEventListener('click', function() {
-    const checkbox = document.getElementById('terminos').value.trim();
-    if (!checkbox.checked) {
-      showAlertError();
-    }
- });
+function checkboxPrueba() {
+    const checkbox = document.getElementById('terminos');
+
+    return checkbox.checked
+ };
 
 function contraseñasEq() {
     const contra1 = document.getElementById('password1').value;
@@ -28,20 +27,21 @@ function camposNoVacios() {
                 document.getElementById('password2').value +
                 document.getElementById('terminos').value;
 
-    alert(res);
     return res != '';    
 }
 
-document.getElementById("regBtn").addEventListener("click", function(e) {
-    e.preventDefault(); 
+function check6Dig() {
 
     let password1 = document.getElementById("password1").value.trim();
-    let password2 = document.getElementById("password2").value.trim();
 
-    if (password1.length < 6) {
-        alert("La contraseña debe tener al menos 6 caracteres.");
-        showAlertError();
-        return;
-        
-    showAlertSuccess();
-});
+    return password1.length >= 6
+
+};
+
+document.getElementById("regBtn").addEventListener("click", function(){
+    if (checkboxPrueba() && contraseñasEq() && camposNoVacios() && check6Dig() && checkboxPrueba()) {
+        showAlertSuccess()
+    } else {
+        showAlertError()  
+    }
+})
