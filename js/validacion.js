@@ -6,6 +6,13 @@ function showAlertError() {
     document.getElementById("alert-danger").classList.add("show");
 }
 
+ document.getElementById('regBtn').addEventListener('click', function() {
+    const checkbox = document.getElementById('terminos').value.trim();
+    if (!checkbox.checked) {
+      showAlertError();
+    }
+ });
+
 function contraseñasEq() {
     const contra1 = document.getElementById('password1').value;
     const contra2 = document.getElementById('password2').value;
@@ -24,6 +31,7 @@ function camposNoVacios() {
     alert(res);
     return res != '';    
 }
+
 document.getElementById("regBtn").addEventListener("click", function(e) {
     e.preventDefault(); 
 
@@ -34,8 +42,6 @@ document.getElementById("regBtn").addEventListener("click", function(e) {
         alert("La contraseña debe tener al menos 6 caracteres.");
         showAlertError();
         return;
-    }
-
-
+        
     showAlertSuccess();
 });
