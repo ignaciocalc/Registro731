@@ -38,10 +38,13 @@ function check6Dig() {
 
 };
 
-document.getElementById("regBtn").addEventListener("click", function(){
-    if (checkboxPrueba() && contraseñasEq() && camposNoVacios() && check6Dig() && checkboxPrueba()) {
-        showAlertSuccess()
-    } else {
-        showAlertError()  
-    }
+document.addEventListener("DOMContentLoaded", function() {
+    
+    document.getElementById("regBtn").addEventListener("click", function(){
+        if (checkboxPrueba() && contraseñasEq() && camposNoVacios() && check6Dig() && checkboxPrueba()) {
+            showAlertSuccess()
+        } else {
+            showAlertError()  
+        }
+    })
 })
